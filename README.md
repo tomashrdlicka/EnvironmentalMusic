@@ -1,3 +1,5 @@
+MY BACHELOR PROJECT FOR QUEEN MARY UNIVERSITY OF LONDON COMPUTER SCIENCE DEGREE
+
 PROJECT CONSTRUCTION OVERVIEW (Click on image):
 [![Watch the video](https://img.youtube.com/vi/osoEanJy1pE/maxresdefault.jpg)](https://www.youtube.com/watch?v=osoEanJy1pE)
 
