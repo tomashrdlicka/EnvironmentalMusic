@@ -30,3 +30,7 @@ D) Sound Engine
 4. Turn the engine on using the toggle
 
 The instrument is now ready to be used
+
+PROJECT DEMO:
+[![Project Demo](https://img.youtube.com/vi/12AitBk8yDo/maxresdefault.jpg)](https://www.youtube.com/watch?v=12AitBk8yDo)
+
