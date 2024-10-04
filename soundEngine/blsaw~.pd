@@ -1,0 +1,121 @@
+#N canvas 189 332 1286 577 12;
+#X obj 583 115 -~ 0.5;
+#X obj 613 327 *~ 1000;
+#X obj 613 360 +~ 501;
+#X obj 690 181 /~;
+#X obj 708 159 clip~ 1 999999;
+#X obj 690 72 samplerate~;
+#X obj 690 37 r pd-dsp-started;
+#X obj 583 92 phasor~;
+#X obj 613 232 *~;
+#X obj 565 478 outlet~;
+#X obj 613 256 clip~ -0.5 0.5;
+#X obj 582 16 inlet~;
+#X text 812 30 pd-dsp-started is a built-in message that outputs bang
+whenever DSP is switched on;
+#X text 175 115 subtract to make [phasor~] output bipolar: -0.5 to
+0.5;
+#X text 775 69 [samplerate~] reports Pd's current audio sampling rate:
+typically 44.1 or 48 kHz;
+#X text 668 324 -0.5 - 0.5 scaled to -500 - 500;
+#X text 672 357 -500 - 500 recentered to 1 - 1001 (so that it fits
+the extents of the table \, which is 1002 samples long);
+#X obj 613 394 tabread4~ \$0-sawtransition;
+#N canvas 424 38 638 686 generate-table 0;
+#N canvas 0 0 450 300 (subpatch) 0;
+#X array \$0-sawtransition 1002 float 0;
+#X coords 0 1 1002 -1 200 140 1 0 0;
+#X restore 30 494 graph;
+#X text 29 419 Logically the half-cycle is in samples 1 through 1000
+\; samples 0 and 1001 are provided so that the 4-point interpolation
+will work everywhere.;
+#X text 26 389 This network puts a half cycle of a band-limited square
+wave into the table "transition.";
+#X obj 97 267 cos~;
+#X obj 49 266 cos~;
+#X obj 97 233 *~ 3;
+#X obj 97 294 *~ 0.33333;
+#X obj 49 292 *~ -1;
+#X obj 49 328 *~ 0.75;
+#X msg 94 133 -0.0005;
+#X msg 130 93 \; pd dsp 1;
+#X text 97 33 this code by Miller Puckette \, with slight adaptation
+\, from the J09.bandlimited.pd patch included in the Pd help files
+;
+#X obj 28 365 tabwrite~ \$0-sawtransition;
+#X obj 28 21 loadbang;
+#X text 153 134 back up the phase one sample;
+#X text 187 279 summing a pair of cosine waveforms which represent
+the first and third harmonics of a square wave. the left is the first
+harmonic (lower frequency \, higher amplitude) \, the right is the
+third harmonic (higher frequency \, lower amplitude).;
+#X obj 28 43 t b b b b;
+#X obj 48 156 samplerate~;
+#X obj 48 179 / 2000;
+#X obj 48 204 phasor~;
+#X text 109 179 period is 2000 samples \, or twice the table length
+- specific frequency depends upon sampling rate (at 44.1 kHz: 22.05
+\, at 48 kHz: 24);
+#X text 197 94 turn on DSP so we can use [tabwrite~] to fill the table
+with audio samples;
+#X connect 3 0 6 0;
+#X connect 4 0 7 0;
+#X connect 5 0 3 0;
+#X connect 6 0 8 0;
+#X connect 7 0 8 0;
+#X connect 8 0 12 0;
+#X connect 9 0 19 1;
+#X connect 13 0 16 0;
+#X connect 16 0 12 0;
+#X connect 16 1 17 0;
+#X connect 16 2 9 0;
+#X connect 16 3 10 0;
+#X connect 17 0 18 0;
+#X connect 18 0 19 0;
+#X connect 19 0 4 0;
+#X connect 19 0 5 0;
+#X restore 758 256 pd generate-table;
+#X text 835 443 \$0 is another Pd wildcard that we haven't looked at
+yet - it will generate a unique number for every abstraction it's used
+in. this way we can have a unique table name for every oscillator we
+use \, so there are no conflicts or ambiguities. (we could also have
+all the oscillators share a common table \, but then we couldn't just
+use [blsquare~] and [blsaw~] as drop-in resplacements for [osc~] -
+you'd have to supply the sawtransition table separately).;
+#X text 132 21 [phasor~] generates sawtooth-like waveform which rises
+from 0 to 1 it is not useful as an audio waveform a> because it is
+unipolar - no negative values - and b> because it is a "naive" sawtooth
+implementation (no upper limit on frequency components) that will generate
+aliasing like crazy;
+#X obj 690 111 * 0.2;
+#X text 625 478 bandlimited sawtooth wave;
+#X obj 565 451 -~;
+#X text 807 393 reading of bandlimited square wave at transition points
+;
+#X text 747 104 setting the frequency limit as 1/5 of the sampling
+rate to minimize aliasing;
+#X text 150 217 multiplying by a large number (derived from the intended
+oscillator frequency) and then clipping to get a clipped sawtooth -
+mostly spending time at minimum (-0.5) and maximum (0.5) values with
+quick ramp at the discontinuity;
+#X text 150 441 combining the naive sawtooth and the (heavily) bandlimited
+version (read from the table) to get a frequency-adjusted bandlimited
+version - as many harmonics as appropriate to the current frequency
+without aliasing;
+#X text 632 16 oscillator frequency (signal rate);
+#X connect 0 0 8 0;
+#X connect 0 0 23 1;
+#X connect 1 0 2 0;
+#X connect 2 0 17 0;
+#X connect 3 0 8 1;
+#X connect 4 0 3 1;
+#X connect 5 0 21 0;
+#X connect 6 0 5 0;
+#X connect 7 0 0 0;
+#X connect 8 0 10 0;
+#X connect 10 0 1 0;
+#X connect 11 0 7 0;
+#X connect 11 0 4 0;
+#X connect 17 0 23 0;
+#X connect 21 0 3 0;
+#X connect 23 0 9 0;

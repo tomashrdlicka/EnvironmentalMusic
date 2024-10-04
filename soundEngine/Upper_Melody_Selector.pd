@@ -1,0 +1,120 @@
+#N canvas -2165 -468 2071 300 12;
+#X obj 150 163 select 0;
+#X obj 245 163 select 1;
+#X obj 359 164 select 2;
+#X obj 469 161 select 3;
+#X obj 565 162 select 4;
+#X obj 691 161 select 5;
+#X obj 797 161 select 6;
+#X obj 997 162 select 8;
+#X obj 904 161 select 7;
+#X obj 1096 162 select 9;
+#X obj 1194 162 select 10;
+#X obj 1302 162 select 11;
+#X obj 814 14 inlet;
+#X obj 807 478 outlet;
+#X obj 229 225 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc
+#000000 #000000;
+#X obj 361 221 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc
+#000000 #000000;
+#X obj 473 221 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc
+#000000 #000000;
+#X obj 577 222 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc
+#000000 #000000;
+#X obj 709 222 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc
+#000000 #000000;
+#X obj 825 223 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc
+#000000 #000000;
+#X obj 927 223 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc
+#000000 #000000;
+#X obj 1016 226 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc
+#000000 #000000;
+#X obj 1105 226 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc
+#000000 #000000;
+#X obj 1199 224 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc
+#000000 #000000;
+#X obj 1303 224 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc
+#000000 #000000;
+#X obj 1391 163 select 12;
+#X obj 1485 164 select 13;
+#X obj 1408 223 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc
+#000000 #000000;
+#X obj 1503 222 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc
+#000000 #000000;
+#X obj 58 381 C_Major_UpMelody;
+#X obj 187 381 C_Minor_UpMelody;
+#X obj 315 381 D_Major_UpMelody;
+#X obj 441 381 D_Minor_UpMelody;
+#X obj 567 383 E_Major_UpMelody;
+#X obj 694 382 E_Minor_UpMelody;
+#X obj 819 383 F_Major_UpMelody;
+#X obj 941 385 F_Minor_UpMelody;
+#X obj 1073 384 G_Major_UpMelody;
+#X obj 1202 386 G_Minor_UpMelody;
+#X obj 1335 385 A_Major_UpMelody;
+#X obj 1462 385 A_Minor_UpMelody;
+#X obj 1588 386 B_Major_UpMelody;
+#X obj 1715 387 B_Minor_UpMelody;
+#X obj 144 231 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc
+#000000 #000000;
+#X obj 939 29 receive keyScale;
+#X obj 846 69 \$1;
+#X floatatom 939 53 5 0 0 0 - - - 0;
+#X connect 0 0 43 0;
+#X connect 1 0 14 0;
+#X connect 2 0 15 0;
+#X connect 3 0 16 0;
+#X connect 4 0 17 0;
+#X connect 5 0 18 0;
+#X connect 6 0 19 0;
+#X connect 7 0 21 0;
+#X connect 8 0 20 0;
+#X connect 9 0 22 0;
+#X connect 10 0 23 0;
+#X connect 11 0 24 0;
+#X connect 12 0 45 0;
+#X connect 14 0 30 0;
+#X connect 15 0 31 0;
+#X connect 16 0 32 0;
+#X connect 17 0 33 0;
+#X connect 18 0 34 0;
+#X connect 19 0 35 0;
+#X connect 20 0 36 0;
+#X connect 21 0 37 0;
+#X connect 22 0 38 0;
+#X connect 23 0 39 0;
+#X connect 24 0 40 0;
+#X connect 25 0 27 0;
+#X connect 26 0 28 0;
+#X connect 27 0 41 0;
+#X connect 28 0 42 0;
+#X connect 29 0 13 0;
+#X connect 30 0 13 0;
+#X connect 31 0 13 0;
+#X connect 32 0 13 0;
+#X connect 33 0 13 0;
+#X connect 34 0 13 0;
+#X connect 35 0 13 0;
+#X connect 36 0 13 0;
+#X connect 37 0 13 0;
+#X connect 38 0 13 0;
+#X connect 39 0 13 0;
+#X connect 40 0 13 0;
+#X connect 41 0 13 0;
+#X connect 42 0 13 0;
+#X connect 43 0 29 0;
+#X connect 44 0 46 0;
+#X connect 45 0 0 0;
+#X connect 45 0 1 0;
+#X connect 45 0 3 0;
+#X connect 45 0 4 0;
+#X connect 45 0 5 0;
+#X connect 45 0 6 0;
+#X connect 45 0 8 0;
+#X connect 45 0 7 0;
+#X connect 45 0 9 0;
+#X connect 45 0 10 0;
+#X connect 45 0 11 0;
+#X connect 45 0 25 0;
+#X connect 45 0 26 0;
+#X connect 46 0 45 1;
