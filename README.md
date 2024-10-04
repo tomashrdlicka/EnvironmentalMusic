@@ -31,5 +31,6 @@ D) Sound Engine
 
 The instrument is now ready to be used
 
-
+PLAYTHROUGH DEMO:
+[Watch the video demo](./project_showcase.mp4)
 
