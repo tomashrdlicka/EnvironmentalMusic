@@ -1,4 +1,7 @@
-How to run the instrument:
+PROJECT CONSTRUCTION OVERVIEW (Click on image):
+[![Watch the video](https://img.youtube.com/vi/osoEanJy1pE/maxresdefault.jpg)](https://www.youtube.com/watch?v=osoEanJy1pE)
+
+Run the instrument–>
 Follow the instructions in the intended order
 
 A) Weather Client
